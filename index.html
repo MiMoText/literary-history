@@ -19,6 +19,7 @@
 <section data-markdown=""
          data-separator="^\n--\n" 
          data-separator-vertical="^\n---\n" 
+         data-separator-notes="^::" 
          data-charset="utf-8" 
          data-background-image="img/basics/uni-trier_icon.png" 
          data-background-size="70px" 
@@ -28,172 +29,335 @@
 
 <textarea data-template>
 
-# How Could Digital Literary History Work?
-<img height="60" data-src="img/basics/mimotext-logo.png">
+#### How Could Digital Literary Historiography Work? Some Lessons Learned in the MiMoText Project
+<img height="50" data-src="img/basics/mimotext-logo.png">
 <br/>
 <hr/>
+<br/>
 <p>Christof Schöch, with contributions from Maria Hinzmann, Julia Röttgermann, Katharina Dietz, Andreas Lüschow and Anne Klee</p>
-<p><a href="https://mimotext.github.io/modeling/">https://mimotext.github.io/literary-history/</a></p>
 <br/>
-<p><strong><emph>Texas A&M University | October 26, 2020</strong></p>
+<p><strong><emph>DHLab@GS, Univ. of Texas at Austin | October 26, 2020</strong><br/>
+<a href="https://mimotext.github.io/modeling/">https://mimotext.github.io/literary-history/</a>
 <hr/>
-<img height="50" data-src="img/basics/tcdh-slim.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png">
+<img height="50" data-src="img/basics/tcdh-slim.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/mwrlp.svg">
+
+::
+- Collaborative project; name collaborators
+- Funded by the Ministry of Research and Education on the state level
+- Key questions: 
+  - How can we practice Literary Historiography today?
+  - How can we do this in the context of Digital Humanities?
 
 
 --
 ## Overview
-1. [Literary History / Historiography](#/2)
+1. [Introduction: Literary Historiography](#/2)
 1. [Metadata (Bibliographies)](#/3)
 1. [Data (Corpora)](#/4)
 1. [Model (Ontology)](#/5)
 1. [Methods (Machine Learning)](#/6)
-1. [Conclusion](#/7)
+  1. [Unsupervised: Topic Modeling](#/6)
+  1. [Supervised: Statement Extraction](#/7)
+1. [Conclusion](#/8)
+
+::
+- Basically skip this!
+
 
 --
-## Literary History / Historiography
+## Literary Historiography
 
 ---
-#### How Could Digital Literary History Work?
-To enable Digital Literary History, we need several things: 
-1. Metadata: information about the literary production
-2. Data: corpora of primary sources and scholarly publications
-3. Model: an ontology of literary historiography (entities, predicates, subjects)
-4. Methods: supervised and unsupervised, to generate information about entities
+#### How Does Literary Historiography Work?
+* Goals <!-- .element: class="fragment" data-fragment-index="1" -->
+  * Recover and document the facts of literary history
+  * Provide explanations for the evolution of literature
+* Sources <!-- .element: class="fragment" data-fragment-index="2" -->
+  * literary works (and other  primary sources)
+  * scholarly publications; above all: literary histories
+* Organizing principles <!-- .element: class="fragment" data-fragment-index="3" -->
+  * countries, periods, movements, genres
+  * similarities and dissimilarities
+  * continuity and change
+* Explanation of literary evolution <!-- .element: class="fragment" data-fragment-index="4" -->
+  * Changing cultural and socio-historical context
+  * Inner dynamics of the literary system
+
+::
+- Just go through the items.
+
+
+---
+#### (Theory of) Literary Historiography
+<img height="300" data-src="img/hollier.jpg">
+<br/><small>
+
+* Jan-Dirk Müller, "Literaturgeschichte / Literaturgeschichtsschreibung" (1982)
+* Claus Uhlig, "Current Models and Theories of Literary Historiography" (1987)
+* David Hollier, *A New History of French Literature* (1989)
+* David Perkins, *Is Literary History Possible?* (1992)
+* Franco Moretti, *Graphs,
+* Jan Borkowski and Philipp David Heine, "Ziele der Literaturgeschichtsschreibung" (2013)
+
+</small>
+
+
+::
+- Some of the readings; but there is plently more
+- Literary history is no longer driven by the "grand narrative"
+- Literary history knows it is a construction of coherence, rather than the recovery of some true coherence
+- New avenues for literary historiography are being sought. 
+
+
+---
+#### How can a *Digital* Literary Historiography Work?
+* Data-driven literary history <!-- .element: class="fragment" data-fragment-index="1" -->
+  * Reconstruct factoids about literature
+  * Reconstruct statements from literary historiography 
+* Coherence through modeling <!-- .element: class="fragment" data-fragment-index="2" -->
+  * Join all statements in a shared data model
+  * Coherence as an emergent property
+* Two inspirations <!-- .element: class="fragment" data-fragment-index="3" --> 
+  * Hollier: fragmentation pushed to the limit
+  * Moretti: Distant Reading (original sense)
+
+::
+- We just reconstruct two things: 
+  - what can be said to be the case regarding the primary sources
+  - flexible view on literary works and their properties; 
+  - what literary history has said about them so far
+  - Meta-perspective on canonization, periodisation, critical judgements
+- Importantly, we don't aim to support the "explanation" / "coherence" part
+- I think we take Hollier's project to the limit: 
+  - extreme fragmentation, not just individual years and works
+  - But individual statements, but aggregated into an emergent whole
+- We also return to Moretti, in a way
+  - We derive metadata from primary sources and literary history
+  - We provide this as a basis for literary historiography 
+
+
+---
+#### MiMoText: overview
+<a href="img/mimotext-overview_eng.png"><img height="300" data-src="img/mimotext-overview_eng.png"></a>
+<br/>
+1. Metadata (bibliographies)
+2. Data (corpora)
+3. Data Model (ontology of literary history)
+4. Methods of Analysis (Machine Learning)
+
+
+::
+- Our key goal is to provide a dense network of statements about a specific literary period that are relevant for literary historiography; 
+- a sort of "wikidata for literary history"
+- More importantly, our goal is to develop the methods and models needed to do this on a large scale. 
+- What we need for this is: 
+  - Metadata (Bibliographies)
+  - Data (Corpora)
+  - A Data Model (Ontology)
+  - Methods of Analysis (Machine Learning)
+
 
 
 
 --
 ## (1) Metadata (Bibliographies)
 
-
---
-## (2) Data (Corpora)
-
-
---
-## (3) Models (Ontology)
-
-
---
-## (4) Methods (Machine Learning)
-
-
---
-## Conclusion
-
-
----
-#### Willard McCarty, *Humanities Computing*, 2005
-<img height="250" data-src="img/mccarty.jpg">
-
->"The residue of uniqueness"
-
->(modeling as an iterative, knowledge-producing process)
-
----
-#### Jannidis & Flanders, *The Shape of Data in DH*, 2019
-<img height="250" data-src="img/flanders-jannidis.jpg">
-
->"The term 'data modeling' in computer science is most typically used in a fairly restrictive sense for the modeling of relational databases, while the digital humanities has a more general understanding of the term: data modeling is the modeling of some segment of the world in such a way to make some aspects computable."
-
-
----
-#### Computational Modeling in DH
-* Data Modeling <!-- .element: class="fragment" data-fragment-index="1" -->
-  * Conceptual Modeling: entities and relations<br/>(taxonomies, ontologies, vocabularies) <!-- .element: class="fragment" data-fragment-index="2" -->
-  * Logical Modeling: schemas / data structures<br/>(e.g. in XML-TEI, RDF) <!-- .element: class="fragment" data-fragment-index="3" -->
-* Statistical Modeling <!-- .element: class="fragment" data-fragment-index="4" -->
-  * Detecting trends and patterns (e.g. Topic Modeling, Linear Regression, Keyness etc.)  <!-- .element: class="fragment" data-fragment-index="4" -->
-* Language Models <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Properties of Languages encoded in language models (e.g. Word Embedding Models) <!-- .element: class="fragment" data-fragment-index="5" -->
-
-
----
-#### Aims of Literary History
-* Borkowski & Heine, "Ziele der Literaturgeschichtsschreibung" (2013) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Two conceptions <!-- .element: class="fragment" data-fragment-index="2" -->
-  * focus on historicizing <!-- .element: class="fragment" data-fragment-index="2" -->
-  * focus on relating to present-day-concerns <!-- .element: class="fragment" data-fragment-index="2" -->
-* Aims of the historicizing conception <!-- .element: class="fragment" data-fragment-index="3" -->
-  * reconstruction: establishing true or probable propositions about literature <!-- .element: class="fragment" data-fragment-index="3" -->
-  * consolidation: collecting and disseminating the substantiated scholarly record <!-- .element: class="fragment" data-fragment-index="3" -->
-
-
-
---
-## (2) Introduction to<br/>'Mining and Modeling Text'
-
----
-#### MiMoText: overview
-<a href="img/mimotext-overview.png"><img height="500" data-src="img/mimotext-overview.png"></a>
-
-* <a href="https://mimotext.uni-trier.de">https://mimotext.uni-trier.de</a>
-
 ---
 #### Bibliographie du Genre romanesque: Candide
-<a href="img/bgrf-Candide.png"><img height="500" src="img/bgrf-Candide.png"></img></a>
+<a href="img/bgrf-Candide.png"><img height="450" src="img/bgrf-Candide.png"></img></a>
+<p>Martin / Mylne / Frautschi: <em>Bibliographie<br/>du genre romanesque français, 1751-1800</em>, 1977</p>
+
+::
+- An example entry in the printed bibliography
 
 ---
 #### Bibliographie modeled as RDF
 <a href="img/bgrf-Diderot-RDF.png"><img height="500" src="img/bgrf-Diderot-RDF.png"></img></a>
 
+::
+- This is how this looks like when modeled in RDF (as Linked Open Data)
+
+
+---
+#### What's in the bibliography?
+* Summary statistics <!-- .element: class="fragment" data-fragment-index="1" -->
+ * ~1100 different authors
+ * ~2600 entries (novels)
+ * ~58.000 triples (22/novel)
+* Further information <!-- .element: class="fragment" data-fragment-index="2" -->
+  * ~720 novels in first person
+  * ~920 in third person
+  * 2210 entries with notes on content
+
+::
+- Provides us with the best possible approximation of the population
+- Provides us with some key insights into that production (proportion of narrative perspective, for example)
+- Also provides statemtents about the content, plot, setting, protagonists of many of the novels (!)
+
+
+
+
 
 --
-## (3) Modeling Literary History
-<br/>
-
-* (aim: reconstruction)
+## (2) Data (Corpora)
 
 
 ---
-### Topic Modeling Novels
-* Corpus design and text encoding <!-- .element: class="fragment" data-fragment-index="1" -->
-* Topic Modeling <!-- .element: class="fragment" data-fragment-index="2" -->
-* Modeling results as Linked Open Data <!-- .element: class="fragment" data-fragment-index="3" -->
+#### The "roman18" corpus
+<img height="400" src="img/roman18.jpg"></img>
+<br/><p>Collection de romans français du dix-huitième siècle (1750-1800) /<br/>Collection of Eighteenth-Century French Novels (1750-1800)</p>
+
+::
+- Corpus size
+  - Current pilot corpus: 80 volumes
+  - Aim: ca. 100 novels / 150 volumes 
+- Not a representative sample (random sample of population)
+- Rather, balanced for a few key criteria
+  - decade of writing (1750-1800)
+  - type of narration (memoirs, third-person, epistolary, dialogue)
+
+---
+#### Sources
+<img height="300" src="img/laure.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/laure1.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/zely.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<a href="img/zely1.jpg"><img height="300" src="img/zely1.jpg"></img></a>
+
+* Various platforms for full texts
+* Double-keying based on facsimiles
+* Specifically-trained OCR model (OCR4all)
+* => Need to unify the text formats
+
+
+::
+- Platforms: Wikisource, Gallica, Google Books, etc.
 
 
 ---
-#### Building a Corpus
-* Aim: 200 volumes of novels (1750-1800)  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Sources: double keying, OCR, portals   <!-- .element: class="fragment" data-fragment-index="2" -->
-* Corpus composition: decades and narrative forms  <!-- .element: class="fragment" data-fragment-index="3" -->  
-* Current pilot corpus: ca. 80 volumes   <!-- .element: class="fragment" data-fragment-index="4" -->  
-* Text encoding <!-- .element: class="fragment" data-fragment-index="5" -->
-  * Files are encoded in XML-TEI <!-- .element: class="fragment" data-fragment-index="6" -->
-  * Modeled following the ELTeC schema <!-- .element: class="fragment" data-fragment-index="7" -->
+#### Text Encoding (XML-TEI)
+<a href="img/laure-tei.jpg"><img height="300" src="img/laure-tei.jpg"></img></a>
+* Simple encoding in XML-TEI (ELTeC schema)
+* Metadata and basic text structure
+* Modernization: only automatically / "on-the-fly"
+
+
+--
+## (3) Models (Ontology)
+
+---
+#### Jannidis & Flanders, *The Shape of Data in DH*, 2019
+<img height="250" data-src="img/flanders-jannidis.jpg">
+
+>"The term 'data modeling' in computer science is most typically used in a fairly restrictive sense for the modeling of relational databases, while the digital humanities has a more general understanding of the term: data modeling is the [digital representation] of some segment of the world in such a way to make some aspects computable."
+
+---
+#### Design decision: Linked Open Data
+<img height="500" data-src="img/rdf11-primer-example-graph.jpg">
+
+::
+- This model enables us to think in terms of minimal statements
+- Statements consist of atomic units: subject, predicate, object
+- Question: what are relevant statements?
+
+---
+#### What are relevant statements?
+* More precisely: what are the relevant entities and predicates
+* Beyond bibliographical metadata
+* Which types of statements are necessary? Which might be useful?
+* How do we determine / create scholarly consensus around this?
+* Meta-perspective on disciplinary discourse
+
+---
+#### Fundamental subjects
+* Person (role: author, publisher, historical figure)
+* Publication (type: primary source; scholarly publication)  
+
+::
+- these subjects can of course also become objects
+
+
+---
+#### Fundamental statements (1)
+* person AUTHOR_OF publication
+* publication PLACE_OF_PUBLICATION place
+* publication DATE_OF_PUBLICATION year
+* publication ABOUT keyword
+
+:: 
+- predicates and subjects are usually tied together 
+- Basically bibliographical statements
+- "ABOUT" is an interesting case
+- Alternatives: 
+ - "subject" in Dublin Core
+ - "main_subject" (P921) in Wikidata  
+- Requires using some fixed vocabulary of subject keywords
+
+---
+#### Fundamental statements (2)
+* publication NARRATIVE_LOCATION place
+* publication NARRATIVE_TIME time period
+* publication EXTENT_WORDS number of words
+* publication EXTENT_CHAPTERS number of chapters
+
+::
+- with these statements, we are at the core of literary historiography
+- These statements, like the "ABOUT keyword" statement, can be obtained from the primary sources (novels)
+
+
+---
+### Fundamental statements (3)
+
+* person/publ. DESCRIBED_AS (adjective)
+* person/publ. MEMBER_OF_GROUP movement
+* publication INSTANCE_OF_GENRE literary genre
+* person/publ. SIMILAR_TO person/publ.
+* person/publ. DISSIMILAR_TO person/publ.
+* person/publ. INFLUENCED_BY person/publ.
+
+::
+- These statements can really only be derived from scholarly literature about the novels
+- Except, based on a large set of data: similarity can be calculated from other properties (similar location, themes, etc.)
+
+--
+## (4a) Analysis of Primary Sources:<br/>Topic Modeling
 
 
 ---
 #### Topic Modeling
 <a href="img/tm_blei.png"><img height="500" src="img/tm_blei.png"></img></a>
 
+---
+#### Two major topics
+<br/>
+"monarchy" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "love"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/><img height="250" src="img/topic_002.png"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="250" src="img/topic_009.png"></img>
 
 ---
-#### First results
-<a href="img/pilot_mod200_fr_10_500_expStop.html"><img height="500" src="img/pyldavis.png"></img></a>
+#### Derived statements
+* Candide MAIN_SUBJECT "monarchy"
+* Clarice MAIN_SUBJECT "love"
 
+::
+- Only superficially simple statements
+- Topics are only one way to define the "main_subject"
+- Topics have a precise probability (and probability rank) in each novel
+- Topics depend on the specific topic model 
+- Models depend on a specific version of our corpus, and parameters
+- The labels come from a fixed vocabulary we designed
+- To create some transparency, we indicate the top words of each topic
+- And we link to the full topic model on Github / Zenodo
+- All of this needs to be represented in LOD-Model as well.
 
 ---
-#### Modeling as Linked Open Data (LOD) 
-* predicate MAIN_SUBJECT  <!-- .element: class="fragment" data-fragment-index="1" -->
-  * = Wikidata: P921 (cf. Dublin Core "Subject") <!-- .element: class="fragment" data-fragment-index="2" -->
-  * with threshold for inclusion and probability (and/or rank) <!-- .element: class="fragment" data-fragment-index="3" -->
-  * Candide MAIN_SUBJECT 'philosophy' <!-- .element: class="fragment" data-fragment-index="4" -->
-  * {Candide MAIN_SUBJECT 'philosophy'} PROBABILITY 0.34 <!-- .element: class="fragment" data-fragment-index="5" -->
-* Integration into the database of statements <!-- .element: class="fragment" data-fragment-index="6" -->
+#### Topic Modeling as LOD
+<a href="img/network-of-information_TopMod_231020.jpeg"><img height="500" src="img/network-of-information_TopMod_231020.jpeg"></img></a>
 
 
 --
-## (4) Modeling Literary Historiography
-<br/>
-
-* (aim: consolidation + reflexion)
-
+## (4b) Supervised Machine Learning:<br/>Statement Extraction
 
 ---
-### (A) Extracting Statements
-* Create training data by manual annotation (in INCePTION)
-* Train and apply Machine Learning (in Python)
+#### Basic setup for statement extraction
+1. Create annotation guidelines (based on data model)
+2. Perform manual annotation to create training data (in INCePTION)
+3. Train and apply Machine Learning (in Python)
 
 
 ---
@@ -214,55 +378,69 @@ To enable Digital Literary History, we need several things:
 
 ---
 #### Machine Learning
-* Material: sentences automatically annotated for named entities <!-- .element: class="fragment" data-fragment-index="1" -->
-* Provide manual annotations of sentences (training and evaluation) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Learn patterns / probabilities for features indicative of a relation <!-- .element: class="fragment" data-fragment-index="3" -->
-* Generate relation annotations for all sentences <!-- .element: class="fragment" data-fragment-index="4" -->
+<img height="250" src="img/svm.png"></img></a>
+<br/>
+* Material: sentences automatically annotated for named entities
+* Further linguistic annotation (feature engineering)
+* Provide manual annotations of sentences (training and evaluation)
+* Learn patterns / probabilities for features indicative of a relation
+* Generate relation annotations for all sentences
 
-
-
----
-### (B) Modeling Historiography 
-* Which types of statements are necessary?
-* How do we create scholarly consensus?
-* Meta-perspective on disciplinary discourse
+<small>Image source: https://commons.wikimedia.org/wiki/File:SVM_margin.png (CC BY)</small>
 
 
 ---
-#### Extract from literary history
+#### Example from literary historiography
 
 >Candide is Voltaire's most widely read work and was probably already during the author's lifetime. When it first appeared in print in Geneva in 1759, it was immediately banned, but only with the result that it was reprinted thirteen times in the same year. (Erich Köhler, Aufklärung II, 1984; translation: DeepL)
 
 
 ---
-#### Statements (1)
-* Voltaire (viaf:36925746) AUTHOR_OF Candide (viaf:176620251) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide (viaf:176620251) PUBLICATION_DATE 1759  <!-- .element: class="fragment" data-fragment-index="2" -->
-* Candide (viaf:176620251) PUBLICATION_LOCATION Geneva (tgn:7007279)  <!-- .element: class="fragment" data-fragment-index="3" -->
+#### Bibliographic statements
+* Voltaire AUTHOR_OF Candide <!-- .element: class="fragment" data-fragment-index="1" -->
+* Candide PUBLICATION_DATE 1759  <!-- .element: class="fragment" data-fragment-index="2" -->
+* Candide PUBLICATION_LOCATION Geneva <!-- .element: class="fragment" data-fragment-index="3" -->
+
+::
+- Very simple, bibliographic statements
+- Can be compared to data from the bibliography
+- This is again a simplified view
+  - Each of the entities is here referred to by a label
+  - In the internal representation, these are all Wikidata-IDs
+  - These IDs have a property "label"
+
 
 ---
-#### Statements (2)
-* Candide (viaf:176620251) LEGAL_STATUS censored <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide (viaf:176620251) RECEPTION_INTENSITY high <!-- .element: class="fragment" data-fragment-index="2" -->
-* Candide (viaf:176620251) RECEPTION_TIME immediate;long-term <!-- .element: class="fragment" data-fragment-index="3" -->
-* Candide (viaf:176620251) GENRE novel; satire; utopia <!-- .element: class="fragment" data-fragment-index="4" -->
-* Candide (viaf:176620251) NARRATIVE_LOCATION Lisbon; Eldorado; Constantinople <!-- .element: class="fragment" data-fragment-index="5" -->
-* Voltaire (viaf:176620251) INFLUENCED_BY Leibniz <!-- .element: class="fragment" data-fragment-index="6" -->
+#### More statements
+* Candide LEGAL_STATUS censored <!-- .element: class="fragment" data-fragment-index="1" -->
+* Candide RECEPTION_INTENSITY high <!-- .element: class="fragment" data-fragment-index="1" -->
+* Candide RECEPTION_TIME immediate;long-term <!-- .element: class="fragment" data-fragment-index="1" -->
+* Candide GENRE novel; satire; utopia <!-- .element: class="fragment" data-fragment-index="2" -->
+* Candide NARRATIVE_LOCATION Europe; Amérique <!-- .element: class="fragment" data-fragment-index="2" -->
+* Voltaire INFLUENCED_BY Leibniz <!-- .element: class="fragment" data-fragment-index="2" -->
 
----
-#### Special kinds of statements
-* Source:<br/>{Voltaire AUTHOR_OF Candide} SOURCE Köhler_1984<br/><br/>  <!-- .element: class="fragment" data-fragment-index="1" -->
-* Qualifier:<br/>{Candide LEGAL_STATUS censored} TEMPORAL_SCOPE 1759-1765<br/><br/>  <!-- .element: class="fragment" data-fragment-index="2" -->
-* Implicit:<br/>Köhler_1984 MAIN_SUBJECT Voltaire; Candide; Geneva<br/><br/>  <!-- .element: class="fragment" data-fragment-index="3" -->
+::
+- First group: derived from the passage above
+- Second group: derived from Bibliography or other sources
 
 
 --
-## (5) A network of information
-
+## Conclusion
 
 ---
-#### Bringing it all together
-<a href="img/network-of-information.png"><img height="500" src="img/network-of-information.png"></img></a>
+#### Bringing it all together: A Network of Information
+<a href="img/network-of-information-231020.jpeg"><img height="500" src="img/network-of-information-231020.jpeg"></img></a>
+
+::
+- For our project, being able to provide such an network of information (or knowledge graph) would be the goal; 
+- The idea is to present this in a way similar to wikidata: to browse and query using SPARQL queries
+- For literary historians, this will just be the beginning, of course! A new way of distant reading primary sources and literary histories to create a new way of looking at literary history and literary historiography. 
+- Of course it is not a simple compilation of facts, either. It is already a constructed mountain of information. 
+- But it doesn't aim to tell a particular story or create one particular kind of coherence either
+- It  leaves the challenge of creating such a story toi each user. 
+- Thank you very much!
+
+
 
 ---
 ### Thank you!<br/><br/>Questions or comments?
@@ -272,17 +450,11 @@ To enable Digital Literary History, we need several things:
 <br/><br/>
 <br/><br/>
 
-slides: https://mimotext.github.io/modeling/
+slides: https://mimotext.github.io/literary-history/
 
 project: https://mimotext.uni-trier.de/
 
 
---
-## Bonus slides
-
----
-#### Wikidata query
-<a href="https://query.wikidata.org/#SELECT%20DISTINCT%20%3Fbook%20%3FbookLabel%0AWHERE%20%7B%0A%20%20%3Fbook%20wdt%3AP31%20wd%3AQ7725634%20%3B%20%20%23%20books%20that%20are%20literary%20works%0A%20%20%20%20%20%20%20%20wdt%3AP407%20wd%3AQ150%20%3B%20%20%20%20%20%20%23%20books%20written%20in%20French%0A%20%20%20%20%20%20%20%20wdt%3AP921%20wd%3AQ5891%3B%20%23main%20subject%3A%20philosophy%20%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cfr%22%20.%0A%20%20%7D%0A%7D%20%0A"><img height="500" src="img/wikidata-query.png"></img></a>
 
 
 
