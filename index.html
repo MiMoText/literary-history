@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Modeling in MiMoText</title>
+	<title>Smart Modeling (MiMoText)</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
@@ -29,110 +29,54 @@
 
 <textarea data-template>
 
-#### How Could Digital Literary Historiography Work? Some Lessons Learned in the MiMoText Project
-<img height="50" data-src="img/basics/mimotext-logo.png">
+#### Smart Modeling for Digital Literary History
+<img height="60" data-src="img/basics/mimotext-logo.png">
 <br/>
 <hr/>
-<br/>
-<p>Christof Schöch, with contributions from Maria Hinzmann, Julia Röttgermann, Katharina Dietz, Andreas Lüschow and Anne Klee</p>
-<br/>
-<p><strong><emph>DHLab@GS, Univ. of Texas at Austin | October 26, 2020</strong><br/>
-<a href="https://mimotext.github.io/modeling/">https://mimotext.github.io/literary-history/</a>
+<p>Christof Schöch, Maria Hinzmann,<br/>Katharina Dietz, Julia Röttgermann, Anne Klee</p>
+<hr/>
+<p><strong>Smart Data X Digital Humanities: 11th International Conference of Digital Archives and Digital Humanities (DADH2020), Academia Sinica, Taipei, Taiwan, Dec. 1-4, 2020</strong><br/>
+<p><a href="https://mimotext.github.io/literary-history/">https://mimotext.github.io/literary-history/</a></p>
 <hr/>
 <img height="50" data-src="img/basics/tcdh-slim.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/mwrlp.svg">
 
 ::
-- Collaborative project; name collaborators
-- Funded by the Ministry of Research and Education on the state level
-- Key questions: 
-  - How can we practice Literary Historiography today?
-  - How can we do this in the context of Digital Humanities?
+- Collaborative project
+- Funded for 3 years by the regional government
+- Key question: 
+  - How can make the most out of digital methods for Literary History today?
 
 
 --
 ## Overview
-1. [Introduction: Literary Historiography](#/2)
-1. [Metadata (Bibliographies)](#/3)
-1. [Data (Corpora)](#/4)
-1. [Model (Ontology)](#/5)
-1. [Methods (Machine Learning)](#/6)
-  1. [Unsupervised: Topic Modeling](#/6)
-  1. [Supervised: Statement Extraction](#/7)
-1. [Conclusion](#/8)
+1. [Introduction: The MiMoText Project](#/2)
+1. [Bibliographies](#/3)
+1. [Scholarly Publications](#/4)
+1. [Primary Sources](#/5)
+1. [Conclusion: Bringing it all together](#/6)
 
 ::
 - Basically skip this!
 
 
 --
-## Literary Historiography
-
----
-#### How Does Literary Historiography Work?
-* Goals <!-- .element: class="fragment" data-fragment-index="1" -->
-  * Recover and document the facts of literary history
-  * Provide explanations for the evolution of literature
-* Sources <!-- .element: class="fragment" data-fragment-index="2" -->
-  * literary works (and other  primary sources)
-  * scholarly publications; above all: literary histories
-* Organizing principles <!-- .element: class="fragment" data-fragment-index="3" -->
-  * countries, periods, movements, genres
-  * similarities and dissimilarities
-  * continuity and change
-* Explanation of literary evolution <!-- .element: class="fragment" data-fragment-index="4" -->
-  * Changing cultural and socio-historical context
-  * Inner dynamics of the literary system
-
-::
-- Just go through the items.
+## The MiMoText Project
 
 
 ---
-#### (Theory of) Literary Historiography
-<img height="300" data-src="img/hollier.jpg">
-<br/><small>
-
-* Jan-Dirk Müller, "Literaturgeschichte / Literaturgeschichtsschreibung" (1982)
-* Claus Uhlig, "Current Models and Theories of Literary Historiography" (1987)
-* David Hollier, *A New History of French Literature* (1989)
-* David Perkins, *Is Literary History Possible?* (1992)
-* Jan Borkowski and Philipp David Heine, "Ziele der Literaturgeschichtsschreibung" (2013)
-
-</small>
-
+#### Context: Trier Center for Digital Humanities
+<a href="img/tcdh.jpg"><img height="480" data-src="img/tcdh.jpg"></a>
+<p><a href="https://tcdh.uni-trier.de">tcdh.uni-trier.de</a></p>
 
 ::
-- Some of the readings; but there is plently more
-- Literary history is no longer driven by the "grand narrative"
-- Literary history knows it is a construction of coherence, rather than the recovery of some true coherence
-- New avenues for literary historiography are being sought. 
-
-
----
-#### How can a *Digital* Literary Historiography Work?
-* Data-driven literary history <!-- .element: class="fragment" data-fragment-index="1" -->
-  * Reconstruct factoids about literature
-  * Reconstruct statements from literary historiography 
-* Coherence through modeling <!-- .element: class="fragment" data-fragment-index="2" -->
-  * Join all statements in a shared data model
-  * Coherence as an emergent property
-* Two inspirations <!-- .element: class="fragment" data-fragment-index="3" --> 
-  * Hollier: fragmentation pushed to the limit
-  * Moretti: Distant Reading (original sense)
-
-::
-- We just reconstruct two things: 
-  - what can be said to be the case regarding the primary sources
-  - flexible view on literary works and their properties; 
-  - what literary history has said about them so far
-  - Meta-perspective on canonization, periodisation, critical judgements
-- Importantly, we don't aim to support the "explanation" / "coherence" part
-- I think we take Hollier's project to the limit: 
-  - extreme fragmentation, not just individual years and works
-  - But individual statements, but aggregated into an emergent whole
-- We also return to Moretti, in a way
-  - We derive metadata from primary sources and literary history
-  - We provide this as a basis for literary historiography 
+- "MiMoText" is a project located at the TCDH, Trier University, Germany
+- The TCDH has been founded in 1998 and is one of the oldest DH centers in Europe
+- Our areas of specialty include: 
+  - scholarly digital editions
+  - digital lexicography
+  - research software
+  - and computational literary studies.
+- The MiMoText project is part of the CLS research area
 
 
 ---
@@ -146,15 +90,38 @@
 
 
 ::
-- Our key goal is to provide a dense network of statements about a specific literary period that are relevant for literary historiography; 
-- a sort of "wikidata for literary history"
-- More importantly, our goal is to develop the methods and models needed to do this on a large scale. 
-- What we need for this is: 
+- Our key goal is to provide a dense network of information for literary history
+- We aim to create a model for a "wikidata for literary history"
+- More importantly, our goal is to develop the methods and models needed to do this on a large scale
+- We currently focus on 18th-century French literature
+- What we need to build such an information network is: 
+- (A) Three sources of information
   - Metadata (Bibliographies)
-  - Data (Corpora)
+  - Corpora of primary texts: novels
+  - Corpora of Scholarly publications: literary histories
+- (B) 
   - A Data Model (Ontology)
   - Methods of Analysis (Machine Learning)
+  
 
+---
+#### Smart Data, Smart Modeling
+<a href="img/story-of-smart-big-data.png"><img height="480" src="img/story-of-smart-big-data.png"></img></a>
+<p>Schöch, "Big? Smart? Clean? Messy? Data in the Humanities" (2013)</p>
+
+::
+- With this project, we believe that we can contribute to a "third way" for DH: 
+- Not concerned only with very small, carefully curated datasets ("small data": scholarly editions)
+- Not concerned only with massive, big data and big data methods ("big data": deep learning)
+- Instead, a third way:
+  - with mid-sized and somewhat-structured datasets
+  - richly, but automatically, annotated text corpora
+  - allowing sophisticated information retrieval methods and queries
+  - allowing for analyses far beyond the canon of famous literary texts; but still focused on the literary domain
+- Similar, but not identical to, the rich databases of historical information that make up an important branch of DH in Asia (as far as I can tell)
+  - We rely almost entirely on full text and automatic information extraction as the source of information
+  - We operate in the Linked Open Data paradigm rather than classical database technology
+  - Clearly focused on literary studies (rather than History)
 
 
 
@@ -162,7 +129,7 @@
 ## (1) Metadata (Bibliographies)
 
 ---
-#### Bibliographie du Genre romanesque: Candide
+#### *Bibliographie du genre romanesque* : Candide
 <a href="img/bgrf-Candide.png"><img height="450" src="img/bgrf-Candide.png"></img></a>
 <p>Martin / Mylne / Frautschi: <em>Bibliographie<br/>du genre romanesque français, 1751-1800</em>, 1977</p>
 
@@ -170,41 +137,28 @@
 - An example entry in the printed bibliography
 
 ---
-#### Bibliographie modeled as RDF
+#### *Bibliographie* modeled as RDF
 <a href="img/bgrf-Diderot-RDF.png"><img height="500" src="img/bgrf-Diderot-RDF.png"></img></a>
 
 ::
 - This is how this looks like when modeled in RDF (as Linked Open Data)
-
-
----
-#### What's in the bibliography?
-* Summary statistics <!-- .element: class="fragment" data-fragment-index="1" -->
- * ~1100 different authors
- * ~2600 entries (novels)
- * ~58.000 triples (22/novel)
-* Further information <!-- .element: class="fragment" data-fragment-index="2" -->
-  * ~720 novels in first person
-  * ~920 in third person
-  * 2210 entries with notes on content
-
-::
+- The data is modeled using the SPAR family of ontologies
+- What's included: 
+  - ~2600 entries (novels)
+  - ~58.000 triples (22/novel)
 - Provides us with the best possible approximation of the population
-- Provides us with some key insights into that production (proportion of narrative perspective, for example)
 - Also provides statemtents about the content, plot, setting, protagonists of many of the novels (!)
 
 
-
-
-
 --
-## (2) Data (Corpora)
+## (2) Primary Sources
 
 
 ---
 #### The "roman18" corpus
 <img height="400" src="img/roman18.jpg"></img>
-<br/><p>Collection de romans français du dix-huitième siècle (1750-1800) /<br/>Collection of Eighteenth-Century French Novels (1750-1800)</p>
+<br/><p><em>Collection of Eighteenth-Century French Novels (1750-1800)</em></p>
+<p><a href="https://github.com/MiMoText/roman18">github.com/MiMoText/roman18</a></p>
 
 ::
 - Corpus size
@@ -216,228 +170,80 @@
   - type of narration (memoirs, third-person, epistolary, dialogue)
 
 ---
-#### Sources
+#### The "roman18" corpus: digitization
 <img height="300" src="img/laure.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/laure1.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/zely.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<a href="img/zely1.jpg"><img height="300" src="img/zely1.jpg"></img></a>
 
-* Various platforms for full texts
-* Double-keying based on facsimiles
-* Specifically-trained OCR model (OCR4all)
-* => Need to unify the text formats
-
-
-::
-- Platforms: Wikisource, Gallica, Google Books, etc.
-
-
----
-#### Text Encoding (XML-TEI)
-<a href="img/laure-tei.jpg"><img height="300" src="img/laure-tei.jpg"></img></a>
+* Full-text digitization (Double Keying, OCR model)
 * Simple encoding in XML-TEI (ELTeC schema)
-* Metadata and basic text structure
-* Modernization: only automatically / "on-the-fly"
-
-
---
-## (3) Models (Ontology)
+* Currently stands at 96 volumes (work in progress)
 
 ---
-#### Jannidis & Flanders, *The Shape of Data in DH*, 2019
-<img height="250" data-src="img/flanders-jannidis.jpg">
-
->"The term 'data modeling' in computer science is most typically used in a fairly restrictive sense for the modeling of relational databases, while the digital humanities has a more general understanding of the term: data modeling is the [digital representation] of some segment of the world in such a way to make some aspects computable."
-
----
-#### Design decision: Linked Open Data
-<img height="500" data-src="img/rdf11-primer-example-graph.jpg">
-
-::
-- This model enables us to think in terms of minimal statements
-- Statements consist of atomic units: subject, predicate, object
-- Question: what are relevant statements?
-
----
-#### What are relevant statements?
-* More precisely: what are the relevant entities and predicates
-* Beyond bibliographical metadata
-* Which types of statements are necessary? Which might be useful?
-* How do we determine / create scholarly consensus around this?
-* Meta-perspective on disciplinary discourse
-
----
-#### Fundamental subjects
-* Person (role: author, publisher, historical figure)
-* Publication (type: primary source; scholarly publication)  
-
-::
-- these subjects can of course also become objects
-
-
----
-#### Fundamental statements (1)
-* person AUTHOR_OF publication
-* publication PLACE_OF_PUBLICATION place
-* publication DATE_OF_PUBLICATION year
-* publication ABOUT keyword
-
-:: 
-- predicates and subjects are usually tied together 
-- Basically bibliographical statements
-- "ABOUT" is an interesting case
-- Alternatives: 
- - "subject" in Dublin Core
- - "main_subject" (P921) in Wikidata  
-- Requires using some fixed vocabulary of subject keywords
-
----
-#### Fundamental statements (2)
-* publication NARRATIVE_LOCATION place
-* publication NARRATIVE_TIME time period
-* publication EXTENT_WORDS number of words
-* publication EXTENT_CHAPTERS number of chapters
-
-::
-- with these statements, we are at the core of literary historiography
-- These statements, like the "ABOUT keyword" statement, can be obtained from the primary sources (novels)
-
-
----
-### Fundamental statements (3)
-
-* person/publ. DESCRIBED_AS (adjective)
-* person/publ. MEMBER_OF_GROUP movement
-* publication INSTANCE_OF_GENRE literary genre
-* person/publ. SIMILAR_TO person/publ.
-* person/publ. DISSIMILAR_TO person/publ.
-* person/publ. INFLUENCED_BY person/publ.
-
-::
-- These statements can really only be derived from scholarly literature about the novels
-- Except, based on a large set of data: similarity can be calculated from other properties (similar location, themes, etc.)
-
---
-## (4a) Unsupervised Methods:<br/>Topic Modeling<br/>(Primary Sources)
-
-
----
-#### Topic Modeling
-<a href="img/tm_blei.png"><img height="500" src="img/tm_blei.png"></img></a>
-
----
-#### Two major topics
+#### Topic Modeling: Two major topics
 <br/>
 "monarchy" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "love"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br/><img height="250" src="img/topic_002.png"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="250" src="img/topic_009.png"></img>
 
----
-#### Derived statements
-* Candide MAIN_SUBJECT "monarchy"
-* Clarice MAIN_SUBJECT "love"
+* Derived example statements 
+  * Candide ABOUT "monarchy"
+  * Clarice ABOUT "love"
 
 ::
-- Only superficially simple statements
-- Topics are only one way to define the "main_subject"
-- Topics have a precise probability (and probability rank) in each novel
-- Topics depend on the specific topic model 
-- Models depend on a specific version of our corpus, and parameters
-- The labels come from a fixed vocabulary we designed
-- To create some transparency, we indicate the top words of each topic
-- And we link to the full topic model on Github / Zenodo
-- All of this needs to be represented in LOD-Model as well.
+- 
 
----
-#### Topic Modeling as LOD
-<a href="img/network-of-information_TopMod_231020.jpeg"><img height="500" src="img/network-of-information_TopMod_231020.jpeg"></img></a>
 
 
 --
-## (4b) Supervised Machine Learning:<br/>Statement Extraction<br/>(Scholarly Publications)
+## (3) Scholarly Publications
 
 ---
-#### Basic setup for statement extraction
-1. Create annotation guidelines (based on data model)
-2. Perform manual annotation to create training data (in INCePTION)
-3. Train and apply Machine Learning (in Python)
+#### Named Entity Recognition
+><span style="background-color:yellow">Candide [WORK]</span> is <span style="background-color:yellow">Voltaire's [PERS]</span> most widely read work, and was probably already during <span style="background-color:yellow">the author's [PERS]</span> lifetime. When <span style="background-color:yellow">it [WORK]</span> first appeared in print in <span style="background-color:yellow">Geneva [LOC]</span> in <span style="background-color:yellow">1759 [TIME]</span>, it was immediately banned, but only with the result that it was reprinted thirteen times in the same year. (Köhler)
 
-
----
-#### Annotate subject-object layer
-<a href="img/inception_Candide-disambiguation.png"><img height="350" src="img/inception_Candide-disambiguation.png"></img></a>
-
-* here: named entities: authors, works
-* disambiguation of entities via Wikidata IDs
-
+* Recognition results (spaCy, F1-score)
+  * PERS: 0.864-0.917 
+  * LOC: 0.829-0.837
+  * WORK: 0.451-0.497
 
 ---
-#### Annotate relation layer
-<a href="img/inception_Candide-relation.png"><img height="300" src="img/inception_Candide-relation.png"></img></a>
-
-* here: "author_of" relation (Wikidata: inverse of P50)
-* Statements/ LOD triples: 'author AUTHOR_OF work'
-* Training data: sentences +  statements
-
----
-#### Machine Learning
-<img height="250" src="img/svm.png"></img></a>
-<br/>
-* Material: sentences automatically annotated for named entities
-* Further linguistic annotation (feature engineering)
-* Provide manual annotations of sentences (training and evaluation)
-* Learn patterns / probabilities for features indicative of a relation
-* Generate relation annotations for all sentences
-
-<small>Image source: https://commons.wikimedia.org/wiki/File:SVM_margin.png (CC BY)</small>
-
-
----
-#### Example from literary historiography
-
->Candide is Voltaire's most widely read work and was probably already during the author's lifetime. When it first appeared in print in Geneva in 1759, it was immediately banned, but only with the result that it was reprinted thirteen times in the same year. (Erich Köhler, Aufklärung II, 1984; translation: DeepL)
-
-
----
-#### Bibliographic statements
-* Voltaire AUTHOR_OF Candide <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide PUBLICATION_DATE 1759  <!-- .element: class="fragment" data-fragment-index="2" -->
-* Candide PUBLICATION_LOCATION Geneva <!-- .element: class="fragment" data-fragment-index="3" -->
-
-::
-- Very simple, bibliographic statements
-- Can be compared to data from the bibliography
-- This is again a simplified view
-  - Each of the entities is here referred to by a label
-  - In the internal representation, these are all Wikidata-IDs
-  - These IDs have a property "label"
-
-
----
-#### More statements
-* Candide LEGAL_STATUS censored <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide RECEPTION_INTENSITY high <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide RECEPTION_TIME immediate;long-term <!-- .element: class="fragment" data-fragment-index="1" -->
-* Candide GENRE novel; satire; utopia <!-- .element: class="fragment" data-fragment-index="2" -->
-* Candide NARRATIVE_LOCATION Europe; Amérique <!-- .element: class="fragment" data-fragment-index="2" -->
-* Voltaire INFLUENCED_BY Leibniz <!-- .element: class="fragment" data-fragment-index="2" -->
-
-::
-- First group: derived from the passage above
-- Second group: derived from Bibliography or other sources
+#### Statement Extraction
+<img height="300" src="img/inception_genre.png"></img>
+1. Named Entity Recognition (automatically)
+2. Statement Annotation (manually: Training Data; shown here)
+3. Machine Learning (based on Training Data)
 
 
 --
-## Conclusion
+## Bringing it all together
+
+
 
 ---
-#### Bringing it all together: A Network of Information
-<a href="img/network-of-information-261020.jpeg"><img height="500" src="img/network-of-information-261020.jpeg"></img></a>
+#### LOD about *Candide*: metadata
+<img height="500" data-src="img/Knowledge-Graph_Beispiel1_Candide_22-11-20.png">
 
 ::
-- For our project, being able to provide such an network of information (or knowledge graph) would be the goal; 
-- The idea is to present this in a way similar to wikidata: to browse and query using SPARQL queries
-- For literary historians, this will just be the beginning, of course! A new way of distant reading primary sources and literary histories to create a new way of looking at literary history and literary historiography. 
-- Of course it is not a simple compilation of facts, either. It is already a constructed mountain of information. 
-- But it doesn't aim to tell a particular story or create one particular kind of coherence either
-- It  leaves the challenge of creating such a story toi each user. 
-- Thank you very much!
+- LOD: enables us to think in terms of minimal statements
+- Statements consist of atomic units: subject, predicate, object
+- The key challenge is in the underlying, subject-specific ontology
+
+
+---
+#### LOD about *Candide*: ABOUT
+<img height="500" data-src="img/network-of-information_TopMod_291020c.png">
+
+::
+- Another network, focused on the themes in Candide
+  - ABOUT statements can be derived from the bibliography, from primary sources, from scholarly publications
+  - The labels for these ABOUT statments come from a fixed vocabulary we designed
+  - Each ABOUT statement has a specific source: a model, a publication, etc.
+  - The sources need to be represented in the model as well
+- This network forms the basis of our "Wikidata for Literary History"
+  - Users can browse, search, and query using SPARQL queries
+  - For literary historians, this will just be the beginning, of course! 
+  - A new way of distant reading and literary history
+  - Doesn't aim to tell a particular story
+  - It leaves the challenge of creating such a story to each user. 
+- Thank you!
 
 
 
@@ -446,12 +252,10 @@
 
 <br/><br/>
 <br/><br/>
-<br/><br/>
-<br/><br/>
 
-slides: https://mimotext.github.io/literary-history/
+slides: [mimotext.github.io/literary-history/](https://mimotext.github.io/literary-history/)
 
-project: https://mimotext.uni-trier.de/
+project: [mimotext.uni-trier.de/](https://mimotext.uni-trier.de/)
 
 
 
