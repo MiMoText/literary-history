@@ -83,9 +83,9 @@
 #### MiMoText: overview
 <a href="img/mimotext-overview_eng.png"><img height="300" data-src="img/mimotext-overview_eng.png"></a>
 <br/>
-1. Metadata (bibliographies)
-2. Data (corpora)
-3. Data Model (ontology of literary history)
+1. Bibliographies: metadata modeling
+2. Primary Texts: analysis results
+3. Scholarly Publications: statement extraction
 4. Methods of Analysis (Machine Learning)
 
 
@@ -96,12 +96,12 @@
 - We currently focus on 18th-century French literature
 - What we need to build such an information network is: 
 - (A) Three sources of information
-  - Metadata (Bibliographies)
-  - Corpora of primary texts: novels
-  - Corpora of Scholarly publications: literary histories
-- (B) 
-  - A Data Model (Ontology)
-  - Methods of Analysis (Machine Learning)
+  - Bibliographies: metadata modeling
+  - Primary texts: novels; results from quantitative analysis
+  - Scholarly publications (literary histories): statment extraction
+- (B) You also need
+  - A Data Model (Ontology, Data structure)
+  - Methods of Analysis (Annotation, Machine Learning)
   
 
 ---
@@ -111,18 +111,17 @@
 
 ::
 - With this project, we believe that we can contribute to a "third way" for DH: 
-- Not concerned only with very small, carefully curated datasets ("small data": scholarly editions)
-- Not concerned only with massive, big data and big data methods ("big data": deep learning)
+- Not concerned with "small data": scholarly editions
+- Not concerned  big data: deep learning)
 - Instead, a third way:
-  - with mid-sized and somewhat-structured datasets
+  - mid-sized, somewhat-structured datasets
   - richly, but automatically, annotated text corpora
   - allowing sophisticated information retrieval methods and queries
   - allowing for analyses far beyond the canon of famous literary texts; but still focused on the literary domain
-- Similar, but not identical to, the rich databases of historical information that make up an important branch of DH in Asia (as far as I can tell)
-  - We rely almost entirely on full text and automatic information extraction as the source of information
-  - We operate in the Linked Open Data paradigm rather than classical database technology
-  - Clearly focused on literary studies (rather than History)
-
+- Similar to the rich databases of historical information important in Asian DH (as far as I can tell)
+  - Based on full text and automatic information extraction
+  - We operate in the Linked Open Data paradigm (not Databases)
+  - Focused on literary studies (rather than History)
 
 
 --
@@ -135,6 +134,10 @@
 
 ::
 - An example entry in the printed bibliography
+- ~2600 such entries (novels)
+- carefully-curated data, published in 1997
+- defines our population: all novels ever published in the period
+
 
 ---
 #### *Bibliographie* modeled as RDF
@@ -142,12 +145,9 @@
 
 ::
 - This is how this looks like when modeled in RDF (as Linked Open Data)
-- The data is modeled using the SPAR family of ontologies
-- What's included: 
-  - ~2600 entries (novels)
-  - ~58.000 triples (22/novel)
-- Provides us with the best possible approximation of the population
-- Also provides statemtents about the content, plot, setting, protagonists of many of the novels (!)
+- The data is modeled using Dublin Core and the SPAR family of ontologies
+- Contains about 58.000 triples (22 per novel)
+- Includes statements about the content, plot, setting, protagonists of many of the novels (!)
 
 
 --
@@ -161,21 +161,21 @@
 <p><a href="https://github.com/MiMoText/roman18">github.com/MiMoText/roman18</a></p>
 
 ::
-- Corpus size
-  - Current pilot corpus: 80 volumes
-  - Aim: ca. 100 novels / 150 volumes 
+- Corpus size: currently 96 volumes (work in progress)
 - Not a representative sample (random sample of population)
 - Rather, balanced for a few key criteria
   - decade of writing (1750-1800)
   - type of narration (memoirs, third-person, epistolary, dialogue)
+  - male and female authors
+
 
 ---
 #### The "roman18" corpus: digitization
 <img height="300" src="img/laure.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/laure1.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<img height="300" src="img/zely.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;<a href="img/zely1.jpg"><img height="300" src="img/zely1.jpg"></img></a>
 
+* Most important source: French National Library (PDF scans)
 * Full-text digitization (Double Keying, OCR model)
 * Simple encoding in XML-TEI (ELTeC schema)
-* Currently stands at 96 volumes (work in progress)
 
 ---
 #### Topic Modeling: Two major topics
@@ -196,6 +196,13 @@
 ## (3) Scholarly Publications
 
 ---
+#### Statement Extraction
+1. Named Entity Recognition (automatically)
+2. Statement Annotation (manually, to create training data; shown here)
+3. Statement Extraction (using Machine Learning, based on training data)
+
+
+---
 #### Named Entity Recognition
 ><span style="background-color:yellow">Candide [WORK]</span> is <span style="background-color:yellow">Voltaire's [PERS]</span> most widely read work, and was probably already during <span style="background-color:yellow">the author's [PERS]</span> lifetime. When <span style="background-color:yellow">it [WORK]</span> first appeared in print in <span style="background-color:yellow">Geneva [LOC]</span> in <span style="background-color:yellow">1759 [TIME]</span>, it was immediately banned, but only with the result that it was reprinted thirteen times in the same year. (Köhler)
 
@@ -205,11 +212,15 @@
   * WORK: 0.451-0.497
 
 ---
-#### Statement Extraction
-<img height="300" src="img/inception_genre.png"></img>
-1. Named Entity Recognition (automatically)
-2. Statement Annotation (manually: Training Data; shown here)
-3. Machine Learning (based on Training Data)
+#### Statement Annotation
+<img height="250" src="img/inception_Candide-disambiguation.png"></img>
+<img height="250" src="img/inception_genre.png"></img>
+
+::
+- Second step: Statement Annotation
+- To improve the Named Entity Recognition (here, at the top: disambiguation)
+- To generate training data (here, at the bottom: "Bélisaire HAS_GENRE novel"
+
 
 
 --
