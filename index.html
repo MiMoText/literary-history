@@ -21,8 +21,9 @@
          data-separator-vertical="^\n---\n" 
          data-separator-notes="^::" 
          data-charset="utf-8" 
+         data-transition="slide" 
          data-background-image="img/basics/uni-trier_icon.png" 
-         data-background-size="70px" 
+         data-background-size="80px" 
          data-background-position="right 10px top 10px">
 
 <!-- ============ BEGINNING OF SLIDE CONTENT =========== -->
@@ -32,10 +33,11 @@
 #### Smart Modeling for Digital Literary History
 <img height="60" data-src="img/basics/mimotext-logo.png">
 <br/>
+<br/>
 <hr/>
 <p>Christof Schöch, Maria Hinzmann,<br/>Katharina Dietz, Julia Röttgermann, Anne Klee</p>
 <hr/>
-<p><strong>Smart Data X Digital Humanities: 11th International Conference of Digital Archives and Digital Humanities (DADH2020), Academia Sinica, Taipei, Taiwan, Dec. 1-4, 2020</strong><br/>
+<p><strong>Smart Data X Digital Humanities (DADH2020), Dec. 1-4, 2020</strong><br/>
 <p><a href="https://mimotext.github.io/literary-history/">https://mimotext.github.io/literary-history/</a></p>
 <hr/>
 <img height="50" data-src="img/basics/tcdh-slim.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/uni-trier.png">&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/mwrlp.svg">
@@ -226,28 +228,46 @@
 --
 ## Bringing it all together
 
+---
+### Modeling Challenges
+* Of all the statements we could extract, which are the most relevant for literary history?
+* How can we create consensus around the underlying domain ontology?
+* How do we specifically model the information we extract? 
+* How can we best use the possibilities of LOD in our context?
+* For example, how do we make the sources of information explicit?
 
 
 ---
-#### LOD about *Candide*: metadata
+#### LOD for *Candide*: metadata
 <img height="500" data-src="img/Knowledge-Graph_Beispiel1_Candide_22-11-20.png">
 
 ::
 - LOD: enables us to think in terms of minimal statements
 - Statements consist of atomic units: subject, predicate, object
 - The key challenge is in the underlying, subject-specific ontology
+- As long as we stick to fundamental metadata, this is still rather simple
+
+---
+#### LOD for *Candide*: NARRATIVE_LOCATION
+<img height="500" data-src="img/network-of-information-261020.jpeg">
+
+::
+- Each statement has a specific source: a model, a publication, etc.
+- Here, this is the case for "NARRATIVE_LOCATION"
+- There is information on this from the bibliography (top left)
+- But also from a Named Entity analysis of the novels
+- The sources need to be represented in the model as well
 
 
 ---
-#### LOD about *Candide*: ABOUT
+#### LOD for *Candide*: ABOUT
 <img height="500" data-src="img/network-of-information_TopMod_291020c.png">
 
 ::
 - Another network, focused on the themes in Candide
   - ABOUT statements can be derived from the bibliography, from primary sources, from scholarly publications
-  - The labels for these ABOUT statments come from a fixed vocabulary we designed
-  - Each ABOUT statement has a specific source: a model, a publication, etc.
-  - The sources need to be represented in the model as well
+  - Here, an example of how ABOUT statments from topic modeling are represented
+  - With their labels, their topic words, the specific model they come from, etc.
 - This network forms the basis of our "Wikidata for Literary History"
   - Users can browse, search, and query using SPARQL queries
   - For literary historians, this will just be the beginning, of course! 
